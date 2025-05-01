@@ -66,7 +66,7 @@ public class PlayerMove : MonoBehaviour
         playerRigidbody.angularVelocity = Vector3.zero;
         if ((joyStick.Horizontal != 0 || joyStick.Vertical != 0) && !enemyTrigger && !playerDie)
         {
-            transform.rotation = Quaternion.LookRotation(playerRigidbody.velocity);
+            transform.rotation = Quaternion.LookRotation(playerRigidbody.linearVelocity);
         }
         else
         {
@@ -115,14 +115,14 @@ public class PlayerMove : MonoBehaviour
         {
             if ((joyStick.Horizontal == 0 && joyStick.Vertical == 0) || finish || playerDie)
             {
-                playerRigidbody.velocity = Vector3.zero;
+                playerRigidbody.linearVelocity = Vector3.zero;
                 transform.position = new Vector3(playerPozitionX, 0f, playerPozitionZ);
             }
             else
             {
                 float xValue = joyStick.Horizontal * moveSpeed;
                 float zValue = joyStick.Vertical * moveSpeed;
-                playerRigidbody.velocity = new Vector3(xValue, 0f, zValue);
+                playerRigidbody.linearVelocity = new Vector3(xValue, 0f, zValue);
             }
         }
     }

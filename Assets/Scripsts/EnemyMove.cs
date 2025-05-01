@@ -58,14 +58,14 @@ public class EnemyMove : MonoBehaviour
     private void FollowTarget()
     {
         EnemyRb.angularVelocity = Vector3.zero;
-        EnemyRb.velocity = Vector3.zero;
+        EnemyRb.linearVelocity = Vector3.zero;
         if (followTarget)
         {
             nMA.SetDestination(target.position);
         }
         else
         {
-            EnemyRb.velocity = Vector3.zero;
+            EnemyRb.linearVelocity = Vector3.zero;
         }
     }
 
